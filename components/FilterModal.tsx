@@ -123,7 +123,7 @@ const FilterModal: React.FC<FilterModalProps> = ({
             className="bg-blue-600 p-4 rounded-lg items-center mb-8"
             onPress={onClose}
           >
-            <Text className="text-white text-lg font-bold">Primary</Text>
+            <Text className="text-white text-lg font-bold">Apply</Text>
           </TouchableOpacity>
         </ScrollView>
       </SafeAreaView>
