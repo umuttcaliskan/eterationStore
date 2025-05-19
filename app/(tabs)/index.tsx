@@ -130,23 +130,25 @@ export default function HomeScreen() {
 
   const renderProduct = ({ item }: { item: Product }) => (
     <TouchableOpacity onPress={() => router.push({ pathname: '/productDetail', params: { product: JSON.stringify(item) } })} className="flex-1 m-2 p-2.5 bg-white rounded-lg shadow-md">
-      <View className="relative">
-        <Image source={{ uri: item.image }} className="w-full h-36 rounded-lg mb-2" />
-        <TouchableOpacity 
-          className="absolute top-2 right-2 bg-white rounded-full p-1"
-          onPress={() => handleFavorite(item)}
-        >
-          <MaterialCommunityIcons 
-            name={isFavorite(item.id) ? "heart" : "heart-outline"} 
-            size={24} 
-            color={isFavorite(item.id) ? "#FF0000" : "#000000"} 
-          />
-        </TouchableOpacity>
+      <View className="flex-1">
+        <View className="relative">
+          <Image source={{ uri: item.image }} className="w-full h-36 rounded-lg mb-2" />
+          <TouchableOpacity 
+            className="absolute top-2 right-2 bg-white rounded-full p-1"
+            onPress={() => handleFavorite(item)}
+          >
+            <MaterialCommunityIcons 
+              name={isFavorite(item.id) ? "heart" : "heart-outline"} 
+              size={24} 
+              color={isFavorite(item.id) ? "#FF0000" : "#000000"} 
+            />
+          </TouchableOpacity>
+        </View>
+        <Text className="text-base font-bold mb-1">{item.name}</Text>
+        <Text className="text-sm text-gray-600 mb-2">${item.price}</Text>
       </View>
-      <Text className="text-base font-bold mb-1">{item.name}</Text>
-      <Text className="text-sm text-gray-600 mb-2">${item.price}</Text>
       <TouchableOpacity 
-        className="bg-[#1e57ff] p-2 rounded items-center"
+        className="bg-[#1e57ff] p-2 rounded items-center mt-auto"
         onPress={() => handleAddToCart(item)}
       >
         <Text className="text-white font-bold">Add to Cart</Text>
